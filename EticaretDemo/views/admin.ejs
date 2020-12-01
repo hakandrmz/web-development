@@ -1,0 +1,120 @@
+<%- include("header") -%>
+
+<body>
+  <section class="colored-section" id="title">
+
+    <div class="container-fluid">
+
+      <!-- Nav Bar -->
+
+      <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <a class="navbar-brand" href="/">hakazon</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Ürün Kaldır</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./urunekle">Ürün Tanimla</a>
+            </li>
+
+          </ul>
+
+        </div>
+      </nav>
+
+    </div>
+  </section>
+  <section class="text-center">
+    <form action="/adminlogin" method="post" class="form-signin">
+      <img class="mb-4" src="https://i.ibb.co/M8gTNNk/pngtree-letter.jpg" alt="" width="72"
+        height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Yönetici Girişi</h1>
+      <label for="inputEmail" class="sr-only">Email</label>
+      <input type="email" id="inputEmail" name="username" class="form-control" placeholder="E-posta adresi" required
+        autofocus>
+      <label for="inputPassword" class="sr-only">Şifre</label>
+      <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Şifre" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Beni Hatırla
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Giriş Yap</button>
+    </form>
+  </section>
+
+
+  
+  <style>
+    .button {
+      background-color: #f67280;
+    }
+    .btn-primary {
+    color: #fff;
+    background-color: #f67280;
+    border-color: #f67280;
+  }
+    .form-signin {
+      width: 100%;
+      max-width: 330px;
+      padding: 15px;
+      margin: 0 auto;
+    }
+
+    .form-signin .checkbox {
+      font-weight: 400;
+    }
+
+    .form-signin .form-control {
+      position: relative;
+      box-sizing: border-box;
+      height: auto;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .form-signin .form-control:focus {
+      z-index: 2;
+    }
+
+    .form-signin input[type="email"] {
+      margin-bottom: -1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .form-signin input[type="password"] {
+      margin-bottom: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <%- include("footer") -%>

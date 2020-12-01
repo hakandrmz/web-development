@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: "Montserrat";
+            background-color: #f4f4f2;
+        }
+
+        .kategori {
+            width: 100%;
+            background-color: #555;
+            overflow: auto;
+
+        }
+
+        .kategori a {
+            float: left;
+            padding: 12px;
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            width: 25%;
+            text-align: center;
+
+
+
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Montserrat-Bold";
+        }
+
+        .urunAdi {
+            color: black;
+        }
+
+        html {
+            min-height: 1000px;
+            font-family: 'helvetica neue';
+        }
+
+
+
+        .card {
+            /* Add shadows to create the "card" effect */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            margin-top: 0;
+            margin-left: 5;
+        }
+
+        .urun-fiyati {
+            margin-bottom: 0;
+        }
+
+        .urun-fiyati:before {
+            content: "₺";
+        }
+
+        .card-text {
+            margin-bottom: 0cm;
+
+        }
+
+        .card-body {
+            text-align: center;
+        }
+
+        .totals {
+            color: black;
+        }
+
+        .navbar-light {
+            display: flex;
+            display: inline;
+            position: relative;
+        }
+
+
+
+        .card-title {
+            color: black;
+            margin-bottom: 0%;
+        }
+
+        /* On mouse-over, add a deeper shadow */
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        /* Add some padding inside the card container */
+        .container {
+            padding: 2px 16px;
+
+        }
+
+
+        h1 {
+            color: black;
+            padding: 10px;
+        }
+
+        input:checked+p {
+            text-decoration: line-through;
+            text-decoration-color: #A683E3;
+        }
+
+        input[type="checkbox"] {
+            margin: 20px;
+        }
+
+        p {
+            margin: 0;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: 200;
+            color: #00204a;
+        }
+
+        form {
+            margin-left: 20px;
+        }
+
+        button {
+            min-height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            border-color: transparent;
+            background-color: #A683E3;
+            color: #fff;
+            font-size: 30px;
+            padding-bottom: 6px;
+            border-width: 0;
+        }
+
+        input[type="text"] {
+            height: 60px;
+            top: 10px;
+            font-size: 20px;
+            font-weight: 200;
+            margin: groove;
+        }
+
+
+        ::placeholder {
+            color: grey;
+            opacity: 1;
+        }
+
+        footer {
+            color: white;
+            color: rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        img.urun-resmi {
+            width: 100%;
+            display: block;
+            height: 80%;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+
+        /* Containers */
+
+        .container-fluid {
+            padding: 1% 5%;
+            margin: 0%;
+
+        }
+
+        /* Sections */
+
+        .colored-section {
+            color: black;
+            background-color: #f67280;
+        }
+
+        /* Navigation Bar */
+
+        .navbar {
+            padding: 0 0 1rem;
+        }
+
+        .navbar-link {
+            color: white;
+        }
+
+        .navbar-brand {
+            font-family: "Ubuntu";
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: red;
+        }
+
+        .nav-item {
+            padding: 0 18px;
+        }
+
+        .nav-link {
+            font-size: 1.2rem;
+            font-family: "Montserrat-Light";
+            font-size: x-large;
+        }
+
+        /* Buttons */
+    </style>
+    <meta charset="utf-8" />
+    <title>Hakazon</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet" />
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+    <section class="colored-section" id="title">
+        <div class="container-fluid">
+            <!-- Nav Bar -->
+
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="/">hakazon</a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./sepet">Sepetim</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./hesabim">Hesabım</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <div class="kategori">
+        <a href="/elektronik">Elektronik</a>
+        <a href="/moda">Moda</a>
+        <a href="/kitap">Kitap</a>
+        <a href="/spor">Spor</a>
+    </div>
+    <!--Main layout-->
+    <main class="mt-5 pt-4">
+        <div class="container wow fadeIn">
+            <!-- Heading -->
+            <h2 class="my-5 h2 text-center">Sipariş Sayfası</h2>
+
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-md-8 mb-4">
+                    <!--Card-->
+                    <div class="card">
+                        <!--Card content-->
+                        <form class="card-body" action="/onay" method="get" >
+                            <!--Grid row-->
+                            <div class="row">
+                                <!--Grid column-->
+                                <div class="col-md-6 mb-2">
+                                    <!--firstName-->
+                                    <div class="md-form">
+                                        <input type="text" id="firstName" class="form-control" />
+                                        <label for="firstName" class="">İsim</label>
+                                    </div>
+                                </div>
+                                <!--Grid column-->
+
+                                <!--Grid column-->
+                                <div class="col-md-6 mb-2">
+                                    <!--lastName-->
+                                    <div class="md-form">
+                                        <input type="text" id="lastName" class="form-control" />
+                                        <label for="lastName" class="">Soyisim</label>
+                                    </div>
+                                </div>
+                                <!--Grid column-->
+                            </div>
+                            <!--Grid row-->
+
+                            <!--address-->
+                            <div class="md-form mb-5">
+                                <input type="text" id="address" class="form-control"
+                                    placeholder="" />
+                                <label for="address" class="">Adres</label>
+                            </div>
+
+                            <!--Grid row-->
+                            <div class="row">
+                                <!--Grid column-->
+                                <div class="col-lg-4 col-md-12 mb-4">
+                                    <label for="country">Bölge</label>
+                                    <select class="custom-select d-block w-100" id="country" required>
+                                        <option value="">Seçim yap.</option>
+                                        <option>Marmara</option>
+                                        <option>Akdeniz</option>
+                                        <option>Ege</option>
+                                        <option>Karadeniz</option>
+                                        <option>İç Anadolu</option>
+                                        <option>Doğu Anadolu </option>
+                                        <option>Güneydoğu Anadolu</option>
+
+
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Lütfen bölge seçiniz.
+                                    </div>
+                                </div>
+                                <!--Grid column-->
+
+                                <!--Grid column-->
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <label for="state">Şehir</label>
+                                    <select class="custom-select d-block w-100" id="state" required>
+                                        <option value="">Seçim yap.</option>
+                                        <option value="1">Adana</option>
+                                        <option value="2">Adıyaman</option>
+                                        <option value="3">Afyonkarahisar</option>
+                                        <option value="4">Ağrı</option>
+                                        <option value="5">Amasya</option>
+                                        <option value="6">Ankara</option>
+                                        <option value="7">Antalya</option>
+                                        <option value="8">Artvin</option>
+                                        <option value="9">Aydın</option>
+                                        <option value="10">Balıkesir</option>
+                                        <option value="11">Bilecik</option>
+                                        <option value="12">Bingöl</option>
+                                        <option value="13">Bitlis</option>
+                                        <option value="14">Bolu</option>
+                                        <option value="15">Burdur</option>
+                                        <option value="16">Bursa</option>
+                                        <option value="17">Çanakkale</option>
+                                        <option value="18">Çankırı</option>
+                                        <option value="19">Çorum</option>
+                                        <option value="20">Denizli</option>
+                                        <option value="21">Diyarbakır</option>
+                                        <option value="22">Edirne</option>
+                                        <option value="23">Elazığ</option>
+                                        <option value="24">Erzincan</option>
+                                        <option value="25">Erzurum</option>
+                                        <option value="26">Eskişehir</option>
+                                        <option value="27">Gaziantep</option>
+                                        <option value="28">Giresun</option>
+                                        <option value="29">Gümüşhane</option>
+                                        <option value="30">Hakkâri</option>
+                                        <option value="31">Hatay</option>
+                                        <option value="32">Isparta</option>
+                                        <option value="33">Mersin</option>
+                                        <option value="34">İstanbul</option>
+                                        <option value="35">İzmir</option>
+                                        <option value="36">Kars</option>
+                                        <option value="37">Kastamonu</option>
+                                        <option value="38">Kayseri</option>
+                                        <option value="39">Kırklareli</option>
+                                        <option value="40">Kırşehir</option>
+                                        <option value="41">Kocaeli</option>
+                                        <option value="42">Konya</option>
+                                        <option value="43">Kütahya</option>
+                                        <option value="44">Malatya</option>
+                                        <option value="45">Manisa</option>
+                                        <option value="46">Kahramanmaraş</option>
+                                        <option value="47">Mardin</option>
+                                        <option value="48">Muğla</option>
+                                        <option value="49">Muş</option>
+                                        <option value="50">Nevşehir</option>
+                                        <option value="51">Niğde</option>
+                                        <option value="52">Ordu</option>
+                                        <option value="53">Rize</option>
+                                        <option value="54">Sakarya</option>
+                                        <option value="55">Samsun</option>
+                                        <option value="56">Siirt</option>
+                                        <option value="57">Sinop</option>
+                                        <option value="58">Sivas</option>
+                                        <option value="59">Tekirdağ</option>
+                                        <option value="60">Tokat</option>
+                                        <option value="61">Trabzon</option>
+                                        <option value="62">Tunceli</option>
+                                        <option value="63">Şanlıurfa</option>
+                                        <option value="64">Uşak</option>
+                                        <option value="65">Van</option>
+                                        <option value="66">Yozgat</option>
+                                        <option value="67">Zonguldak</option>
+                                        <option value="68">Aksaray</option>
+                                        <option value="69">Bayburt</option>
+                                        <option value="70">Karaman</option>
+                                        <option value="71">Kırıkkale</option>
+                                        <option value="72">Batman</option>
+                                        <option value="73">Şırnak</option>
+                                        <option value="74">Bartın</option>
+                                        <option value="75">Ardahan</option>
+                                        <option value="76">Iğdır</option>
+                                        <option value="77">Yalova</option>
+                                        <option value="78">Karabük</option>
+                                        <option value="79">Kilis</option>
+                                        <option value="80">Osmaniye</option>
+                                        <option value="81">Düzce</option>
+
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Lütfen sehir Seciniz.
+                                    </div>
+                                </div>
+                                <!--Grid column-->
+
+                                <!--Grid column-->
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <label for="zip">Zip</label>
+                                    <input type="text" class="form-control" id="zip" placeholder="" required />
+                                    <div class="invalid-feedback">Posta kodu giriniz.</div>
+                                </div>
+                                <!--Grid column-->
+                            </div>
+                            <!--Grid row-->
+
+                            <hr />
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="cc-name">Kartın üstündeki isminiz.</label>
+                                    <input type="text" class="form-control" id="cc-name" placeholder="" required />
+                                    <div class="invalid-feedback">Kartın üstündeki isimin girilmesi zorunludur.</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="cc-number">Kartın üstündeki numaralar.</label>
+                                    <input type="text" class="form-control" id="cc-number" placeholder="" required />
+                                    <div class="invalid-feedback">
+                                        Lütfen kartın üzerindeki numarları giriniz.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="cc-expiration">Kartın son kullanım tarihini seçiniz.</label>
+                                    <input type="text" class="form-control" id="cc-expiration" placeholder=""
+                                        required />
+                                    <div class="invalid-feedback">kartın üzerindeki tarihin girilmesi zorunludur.</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="cc-expiration">CVV</label>
+                                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required />
+                                    <div class="invalid-feedback">Kartın arkasındaki kodu giriniz.</div>
+                                </div>
+                            </div>
+                            <hr class="mb-4" />
+
+                            <input type="submit" value="Siparişi Onayla." class="btn btn-primary btn-lg"></button>
+                        </form>
+                        <style>
+                            .btn-primary {
+                                background-color: #f67280;
+                                width: 40%;
+                                
+                            }
+                            .btn-primary:hover {
+                                background-color: #f67280;
+                            }
+                            
+                        </style>
+
+                    </div>
+                    <!--/.Card-->
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-4 mb-4">
+                    <!-- Heading -->
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">Sipariş Özetiniz</span>
+
+                    </h4>
+
+                    <!-- Cart -->
+                    <ul class="list-group mb-3 z-depth-1">
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">Vergiler Toplam Fiyat</h6>
+                                <small class="text-muted">Vergiler dahil değil.</small>
+                            </div>
+                            <span class="text-muted"><%=data.alttoplam%></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">Toplam ödenecek vergi.</h6>
+                                <small class="text-muted">Ödemeniz gereken vergi.</small>
+                            </div>
+                            <span class="text-muted"><%=data.vergi%></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">Kargo Ücreti</h6>
+                                <small class="text-muted">Ödemeniz gereken taşıma ücreti.</small>
+                            </div>
+                            <span class="text-muted"><%=data.kargo%></span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Toplam Fiyat</span>
+                            <strong><%=data.toplamfiyat%></strong>
+                        </li>
+                    </ul>
+                    <!-- Cart -->
+                </div>
+
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+    </main>
+</body>
+<style>
+    .card {
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        width: auto;
+        margin-top: 0;
+        margin-left: 5;
+    }
+</style>
+
+</html>
+
+
+<%- include("footer") -%>
