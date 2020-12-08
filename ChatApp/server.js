@@ -4,6 +4,7 @@ var app = express();
 var http = require("http").Server(app);
 var io = require("socket.io")(http);
 var mongoose = require("mongoose");
+var port = process.env.PORT || 5000
 
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
@@ -43,6 +44,6 @@ app.get("/messages", (req, res) => {
 
 });
 
-var server = http.listen(3010, () => {
-  console.log("Server has started. 3010");
+var server = http.listen(port, () => {
+  console.log("Server has started. %d",port)
 });
